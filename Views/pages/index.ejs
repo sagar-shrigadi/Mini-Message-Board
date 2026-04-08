@@ -1,0 +1,15 @@
+<%- include('../header', {title}) %>
+
+<a href="<%= newPath %>"><span><%= btnMsg  %></span></a>
+<section>
+    <% for (let i = 0; i < messages.length; i++) { %>
+        <article>
+            <h2><%= messages[i].user %></h2>
+            <p><%= messages[i].text %></p>
+            <p><%= messages[i].added %></p>
+        </article>
+    <% } %>
+</section>
+</main>
+
+<%- include('../footer') %>
