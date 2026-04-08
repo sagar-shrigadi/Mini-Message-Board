@@ -1,0 +1,22 @@
+<%- include('../header', {title}) %>
+
+<section>
+    <form action="/new" method="post">
+        <h2>Add A Message</h2>
+
+        <div class="username">
+            <label for="username">User Name: </label>
+            <input type="text" name="username" id="username" placeholder="Enter Username">
+        </div>
+
+        <div class="text">
+            <label for="messageText">Add Text: </label>
+            <textarea name="messageText" id="messageText" placeholder="Add a Message"></textarea>
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+</section>
+</main>
+
+<%- include('../footer') %>
