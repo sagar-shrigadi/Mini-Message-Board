@@ -9,6 +9,6 @@ export async function getMsg(req, res) {
     title: "Mini Message Board",
     text: messageToDisplay.text,
     user: messageToDisplay.user,
-    added: messageToDisplay.added,
+    added: messageToDisplay.added.toDateString(),
   });
 }
