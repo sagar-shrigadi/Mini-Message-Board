@@ -1,4 +1,5 @@
 import express from "express";
+import { getIndex } from "../Controllers/getIndex.js";
 
 export const indexRouter = express.Router();
 
@@ -17,11 +18,5 @@ export const messages = [
   },
 ];
 
-indexRouter.get("/", (req, res) => {
-  res.render("pages/index", {
-    title: "Mini Message Board",
-    newPath: "/new",
-    btnMsg: "Add Message",
-    messages,
-  });
-});
+// handing the requests using controllers
+indexRouter.get("/", getIndex);

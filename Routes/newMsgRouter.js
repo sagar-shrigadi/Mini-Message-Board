@@ -1,19 +1,9 @@
 import express from "express";
-import { messages } from "./indexRouter.js";
+import { getNewMsgForm } from "../Controllers/getNewMsgForm.js";
+import { postNewMsg } from "../Controllers/postNewMsg.js";
 
 export const newMsgRouter = express.Router();
 
-newMsgRouter.get("/", (req, res) => {
-  res.render("pages/form", { title: "Mini Message Board" });
-});
-
-newMsgRouter.post("/", (req, res) => {
-  const { username, messageText } = req.body;
-  messages.push({
-    id: messages.length + 1,
-    text: messageText,
-    user: username,
-    added: new Date(),
-  });
-  res.redirect("/");
-});
+// handing the requests using controllers
+newMsgRouter.get("/", getNewMsgForm);
+newMsgRouter.post("/", postNewMsg);
