@@ -122,7 +122,14 @@ main {
 
   .new {
     min-height: 500px;
+    .errorUl {
+      text-align: center;
+      padding: 0;
+      color: red;
+      list-style-type: none;
+    }
     .form {
+      margin-top: 2rem;
       display: flex;
       flex-direction: column;
       gap: 2rem;

@@ -2,18 +2,20 @@
 
 <a href="<%= newPath %>" class="addMsgBtn"><span><%= btnMsg  %></span></a>
 <section class="index">
-    <% for (let i = 0; i < messages.length; i++) { %>
+    <% if (locals.msg) { %>
+        <% for (let i = 0; i < msg.length; i++) { %>
 
-        <a href="/messages/<%= messages[i].id %>" class="messageCard">
-            <article class="messageCard Details">
-                <div class="userTime">
-                    <h2><%= messages[i].user %></h2>
-                    <p><%= messages[i].added.toDateString() %></p>
-                </div>
-                <p><%= messages[i].text %></p>
-            </article>
-        </a>
+            <a href="/messages/<%= msg[i].id %>" class="messageCard">
+                <article class="messageCard Details">
+                    <div class="userTime">
+                        <h2><%= msg[i].username %></h2>
+                        <p><%= msg[i].date.toDateString() %></p>
+                    </div>
+                    <p><%= msg[i].message %></p>
+                </article>
+            </a>
 
+        <% } %>
     <% } %>
 </section>
 </main>
