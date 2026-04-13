@@ -1,12 +1,14 @@
 <%- include('../header', {title}) %>
 
-<section class="msg_id">
-    <div class="userTime">
-        <h2><%= user %></h2>
-        <p><%= added %></p>
-    </div>
-    <p><%= text %></p>
-</section>
+<% if (locals.msg) { %>
+    <section class="msg_id">
+        <div class="userTime">
+            <h2><%= msg[0].username %></h2>
+            <p><%= msg[0].date.toDateString() %></p>
+        </div>
+        <p><%= msg[0].message %></p>
+    </section>
+<% } %>
 </main>
 
 <%- include('../footer') %>

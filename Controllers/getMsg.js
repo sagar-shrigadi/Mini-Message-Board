@@ -1,14 +1,13 @@
-import { messages } from "../Routes/indexRouter.js";
+import { getSelectedMsg } from "../db/queries.js";
 
 export async function getMsg(req, res) {
   const { id } = req.params;
   //   console.log(id);
-  const messageToDisplay = messages.find((msg) => msg.id === Number(id));
-  //   console.log(messageToDisplay);
+  const msg = await getSelectedMsg(Number(id));
+  // console.log(msg);
+
   res.render("pages/messages", {
     title: "Mini Message Board",
-    text: messageToDisplay.text,
-    user: messageToDisplay.user,
-    added: messageToDisplay.added.toDateString(),
+    msg,
   });
 }

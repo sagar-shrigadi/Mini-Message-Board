@@ -5,7 +5,7 @@ import { messagesRouter } from "./Routes/messagesRouter.js";
 
 // create express app
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT;
 
 // to use the contents of post request in middleware functions
 app.use(express.urlencoded({ extended: true }));
