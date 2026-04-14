@@ -2,17 +2,23 @@
 
 A simple Express-based web application that allows users to view and post messages to a public board. This project was built to practice handling routes, rendering templates with EJS, and managing form data.
 
+## Links
+
+- [Live Site](https://mini-message-board-4o4c.onrender.com/)
+
 ## 🚀 Features
 
 - View Messages: See a list of all messages with the author's name and the date they were posted.
 - Add New Messages: A simple form to submit your own name and message.
 - Message Details: Individual links for each message to view them on a separate page.
 - Dynamic Rendering: Uses EJS to render data from the server.
+- Data Persistence: Used PostgreSQL Database for data persistence.
 
 ## 🛠️ Tech Stack
 
 - Node.js
 - Express.js
+- PostgreSQL
 - EJS (View Engine)
 
 ## ⚙️ Installation & Setup
@@ -43,11 +49,17 @@ Navigate to http://localhost:3000 to see the app in action.
 │   ├── getMsg.js
 │   ├── getNewMsgForm.js
 │   └── postNewMsg.js
+├── db/                    # DB logic (seeding, querying, pool)
+│   ├── pool.js            # connection pooling
+│   ├── populate.js        # seeding script to create table and populate data
+│   └── queries.js         # DB interactions
 ├── routes/                # Route definitions & URL paths
 │   ├── indexRouter.js     # "/"
 │   ├── messagesRouter.js  # "/messages"
 │   └── newMsgRouter.js    # "/new"
 ├── views/                 # EJS templates
+│   ├── partials/
+│   │   ├── error.ejs      # Display User Input Validation errors
 │   ├── pages/
 │   │   ├── index.ejs      # Main board
 │   │   ├── form.ejs       # "New Message" form
@@ -68,3 +80,5 @@ Navigate to http://localhost:3000 to see the app in action.
 - Using express.urlencoded() to parse form data from req.body.
 - Working with EJS to dynamically generate HTML on server and send to client as response.
 - Implementing POST requests and using res.redirect() to handle user flow.
+- Using PostgreSQL for data persistence using node-postgres to connect and query the database.
+- Implemented Server Side Validation for Add Message form.
